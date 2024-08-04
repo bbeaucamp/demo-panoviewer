@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43554FC72C5FFEF800DBD433 /* PanoViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43554FC62C5FFEF800DBD433 /* PanoViewerApp.swift */; };
 		43554FC92C5FFEF800DBD433 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43554FC82C5FFEF800DBD433 /* ContentView.swift */; };
 		43554FCB2C5FFEF900DBD433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43554FCA2C5FFEF900DBD433 /* Assets.xcassets */; };
 		43554FCE2C5FFEF900DBD433 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43554FCD2C5FFEF900DBD433 /* Preview Assets.xcassets */; };
+		43554FD62C60071500DBD433 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43554FD52C60071500DBD433 /* ImageViewModel.swift */; };
+		43554FD82C60082E00DBD433 /* SimpleImageViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43554FD72C60082E00DBD433 /* SimpleImageViewerApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		43554FC32C5FFEF800DBD433 /* PanoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PanoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		43554FC62C5FFEF800DBD433 /* PanoViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanoViewerApp.swift; sourceTree = "<group>"; };
 		43554FC82C5FFEF800DBD433 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43554FCA2C5FFEF900DBD433 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43554FCD2C5FFEF900DBD433 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43554FCF2C5FFEF900DBD433 /* PanoViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PanoViewer.entitlements; sourceTree = "<group>"; };
+		43554FD52C60071500DBD433 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		43554FD72C60082E00DBD433 /* SimpleImageViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageViewerApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +54,12 @@
 		43554FC52C5FFEF800DBD433 /* PanoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				43554FC62C5FFEF800DBD433 /* PanoViewerApp.swift */,
 				43554FC82C5FFEF800DBD433 /* ContentView.swift */,
 				43554FCA2C5FFEF900DBD433 /* Assets.xcassets */,
 				43554FCF2C5FFEF900DBD433 /* PanoViewer.entitlements */,
 				43554FCC2C5FFEF900DBD433 /* Preview Content */,
+				43554FD52C60071500DBD433 /* ImageViewModel.swift */,
+				43554FD72C60082E00DBD433 /* SimpleImageViewerApp.swift */,
 			);
 			path = PanoViewer;
 			sourceTree = "<group>";
@@ -139,8 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43554FD62C60071500DBD433 /* ImageViewModel.swift in Sources */,
+				43554FD82C60082E00DBD433 /* SimpleImageViewerApp.swift in Sources */,
 				43554FC92C5FFEF800DBD433 /* ContentView.swift in Sources */,
-				43554FC72C5FFEF800DBD433 /* PanoViewerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,11 +184,14 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = M69PZ66U4V;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -243,11 +250,14 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = M69PZ66U4V;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -271,10 +281,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PanoViewer/PanoViewer.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PanoViewer/Preview Content\"";
+				DEVELOPMENT_TEAM = M69PZ66U4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -296,10 +309,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PanoViewer/PanoViewer.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PanoViewer/Preview Content\"";
+				DEVELOPMENT_TEAM = M69PZ66U4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
