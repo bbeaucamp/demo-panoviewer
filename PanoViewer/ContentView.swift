@@ -1,31 +1,27 @@
 import SwiftUI
 import UniformTypeIdentifiers
+import SceneKit
 
 struct ContentView: View {
     @ObservedObject var viewModel: ImageViewModel
     
     var body: some View {
-        VStack {
-            if let image = viewModel.image {
-                Image(nsImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } else {
-                Text("No image loaded")
+        ZStack {
+            SceneView(
+                scene: viewModel.scene,
+                pointOfView: viewModel.cameraNode
+//                options: [.allowsCameraControl]
+            )
+            .gesture(DragGesture().onChanged(viewModel.handlePan))
+            .gesture(MagnificationGesture().onChanged(viewModel.handlePinch))
+            
+            VStack {
+                Slider(value: $viewModel.yaw, in: -Float.pi...Float.pi, step: 0.01) { Text("Yaw") }
+                Slider(value: $viewModel.pitch, in: -Float.pi/2...Float.pi/2, step: 0.01) { Text("Pitch") }
+                Slider(value: $viewModel.roll, in: -Float.pi...Float.pi, step: 0.01) { Text("Roll") }
+                Slider(value: $viewModel.fov, in: 30...120, step: 1) { Text("FOV") }
             }
-        }
-        .frame(minWidth: 300, minHeight: 300)
-        .onDrop(of: [.image], isTargeted: nil) { providers, _ in
-            guard let provider = providers.first else { return false }
-            _ = provider.loadDataRepresentation(for: .image) { data, error in
-                if error == nil, let data {
-                    DispatchQueue.main.async {
-                        self.viewModel.loadImage(data: data)
-                    }
-                }
-            }
-                
-            return true
+            .padding()
         }
     }
 }
