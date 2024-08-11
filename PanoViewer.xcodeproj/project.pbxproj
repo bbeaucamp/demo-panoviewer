@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		434900482C67A565002E7E26 /* EquirectangularViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434900472C67A565002E7E26 /* EquirectangularViewer.swift */; };
+		4349004A2C67A59E002E7E26 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 434900492C67A59E002E7E26 /* Shaders.metal */; };
 		43554FC92C5FFEF800DBD433 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43554FC82C5FFEF800DBD433 /* ContentView.swift */; };
 		43554FCB2C5FFEF900DBD433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43554FCA2C5FFEF900DBD433 /* Assets.xcassets */; };
 		43554FCE2C5FFEF900DBD433 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43554FCD2C5FFEF900DBD433 /* Preview Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		434900472C67A565002E7E26 /* EquirectangularViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquirectangularViewer.swift; sourceTree = "<group>"; };
+		434900492C67A59E002E7E26 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		43554FC32C5FFEF800DBD433 /* PanoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PanoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43554FC82C5FFEF800DBD433 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43554FCA2C5FFEF900DBD433 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				43554FCC2C5FFEF900DBD433 /* Preview Content */,
 				43554FD52C60071500DBD433 /* ImageViewModel.swift */,
 				43554FD72C60082E00DBD433 /* SimpleImageViewerApp.swift */,
+				434900472C67A565002E7E26 /* EquirectangularViewer.swift */,
+				434900492C67A59E002E7E26 /* Shaders.metal */,
 			);
 			path = PanoViewer;
 			sourceTree = "<group>";
@@ -144,7 +150,9 @@
 			files = (
 				43554FD62C60071500DBD433 /* ImageViewModel.swift in Sources */,
 				43554FD82C60082E00DBD433 /* SimpleImageViewerApp.swift in Sources */,
+				434900482C67A565002E7E26 /* EquirectangularViewer.swift in Sources */,
 				43554FC92C5FFEF800DBD433 /* ContentView.swift in Sources */,
+				4349004A2C67A59E002E7E26 /* Shaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
