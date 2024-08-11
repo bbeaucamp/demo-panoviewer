@@ -14,7 +14,7 @@ struct EquirectangularViewer: NSViewRepresentable {
         mtkView.device = MTLCreateSystemDefaultDevice()
         mtkView.colorPixelFormat = .bgra8Unorm
         mtkView.depthStencilPixelFormat = .depth32Float
-        mtkView.clearColor = MTLClearColor(red: 0.0, green: 0.5, blue: 0.5, alpha: 1.0)
+        mtkView.clearColor = MTLClearColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         
         let panGesture = NSPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
         mtkView.addGestureRecognizer(panGesture)
@@ -45,6 +45,7 @@ struct EquirectangularViewer: NSViewRepresentable {
         var pitch: Float = 0
         var roll: Float = 0
         var fov: Float = 90
+        var aspect: Float = 1.0
 
         init(_ parent: EquirectangularViewer) {
             self.parent = parent
@@ -75,7 +76,9 @@ struct EquirectangularViewer: NSViewRepresentable {
             }
         }
 
-        func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
+        func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+            aspect = Float(size.width / size.height)
+        }
 
         func draw(in view: MTKView) {
             guard let drawable = view.currentDrawable,
@@ -87,7 +90,7 @@ struct EquirectangularViewer: NSViewRepresentable {
 
             renderEncoder.setRenderPipelineState(pipelineState)
             
-            var uniforms = Uniforms(yaw: yaw, pitch: pitch, roll: roll, fov: fov)
+            var uniforms = Uniforms(yaw: yaw, pitch: pitch, roll: roll, fov: fov, aspect: aspect)
             renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 1)
             renderEncoder.setFragmentBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 0)
 
@@ -120,4 +123,5 @@ struct Uniforms {
     var pitch: Float
     var roll: Float
     var fov: Float
+    var aspect: Float
 }

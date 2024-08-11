@@ -11,6 +11,7 @@ struct Uniforms {
     float pitch;
     float roll;
     float fov;
+    float aspect;
 };
 
 // Quaternion helper functions
@@ -51,12 +52,16 @@ vertex VertexOut vertexShader(uint vertexID [[vertex_id]],
 fragment float4 fragmentShader(VertexOut in [[stage_in]],
                                texture2d<float> equirectangularTexture [[texture(0)]],
                                constant Uniforms &uniforms [[buffer(0)]]) {
-    float3 direction;
     float2 texCoord = in.texCoord;
     
-    float fovFactor = tan(uniforms.fov * 0.5 * M_PI_F / 180.0);
-    direction.x = (texCoord.x * 2.0 - 1.0) * fovFactor;
-    direction.y = (texCoord.y * 2.0 - 1.0) * fovFactor;
+    // Calculate the horizontal and vertical field of view
+    float hfov = uniforms.fov * M_PI_F / 180.0;
+    float vfov = 2.0 * atan(tan(hfov * 0.5) / uniforms.aspect);
+    
+    // Calculate the direction vector
+    float3 direction;
+    direction.x = (texCoord.x * 2.0 - 1.0) * tan(hfov * 0.5);
+    direction.y = (texCoord.y * 2.0 - 1.0) * tan(vfov * 0.5);
     direction.z = -1.0;
     
     // Create quaternions for each rotation
